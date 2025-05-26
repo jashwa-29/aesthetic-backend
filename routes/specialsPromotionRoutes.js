@@ -1,29 +1,30 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const path = require('path');
 const specialsPromotionController = require('../controllers/specialsPromotionController');
 const authMiddleware = require('../middleware/auth');
 
-// Configure multer for image uploads
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, path.resolve(__dirname, '../uploads'));
-  },
-  filename: (req, file, cb) => {
-    const fileExtension = path.extname(file.originalname);
-    const filename = Date.now() + fileExtension;
-    cb(null, filename);
-  }
-});
+// Use memoryStorage to support Cloudinary streaming
+const storage = multer.memoryStorage();
 
-const upload = multer({ storage });
+// Optional file filter (only image MIME types)
+const fileFilter = (req, file, cb) => {
+  const allowedTypes = /jpeg|jpg|png|gif/;
+  const isImage = allowedTypes.test(file.mimetype.toLowerCase());
+  if (isImage) {
+    cb(null, true);
+  } else {
+    cb(new Error('Only image files are allowed!'), false);
+  }
+};
+
+const upload = multer({ storage, fileFilter });
 
 // Routes for specials promotions
-router.post('/',authMiddleware, upload.single('image'), specialsPromotionController.createSpecialsPromotion);
+router.post('/', authMiddleware, upload.single('image'), specialsPromotionController.createSpecialsPromotion);
 router.get('/', specialsPromotionController.getAllSpecialsPromotion);
 router.get('/:id', specialsPromotionController.getSpecialsPromotionById);
-router.put('/:id', upload.single('image'), specialsPromotionController.updateSpecialsPromotion);
-router.delete('/:id',authMiddleware, specialsPromotionController.deleteSpecialsPromotion);
+router.put('/:id', authMiddleware, upload.single('image'), specialsPromotionController.updateSpecialsPromotion);
+router.delete('/:id', authMiddleware, specialsPromotionController.deleteSpecialsPromotion);
 
 module.exports = router;

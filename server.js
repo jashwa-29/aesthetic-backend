@@ -13,28 +13,30 @@ const specialsPromotionRoutes = require('./routes/specialsPromotionRoutes');
 
 const app = express();
 
-// Middleware
-app.use(express.json());
-
 // --- CORS Configuration ---
 const allowedOrigins = [
   'https://aestheticstudio.in',
   'http://localhost:3000',
-  'https://admin.aestheticstudio.in',
-  
-
+  'https://adminpanel.aestheticstudio.in',
 ];
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl)
     if (!origin || allowedOrigins.includes(origin)) {
-      return callback(null, true);
+      callback(null, true);
     } else {
-      return callback(new Error('Not allowed by CORS'));
+      callback(new Error('Not allowed by CORS'));
     }
   },
-  credentials: true
-}));
+  credentials: true,
+};
+
+// Enable CORS for all routes including preflight
+app.use(cors(corsOptions));
+
+// --- Middleware ---
+app.use(express.json());
 
 // --- MongoDB Connection ---
 mongoose.connect(process.env.MONGO_URI)
@@ -45,8 +47,8 @@ mongoose.connect(process.env.MONGO_URI)
     console.error('❌ DB connection error:', err);
   });
 
-
-  app.get('/', (req, res) => {
+// --- Test Route ---
+app.get('/', (req, res) => {
   res.send('<h2>🚀 API is running successfully!</h2>');
 });
 
@@ -73,5 +75,5 @@ app.use((err, req, res, next) => {
 // --- Start Server ---
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  console.log(`🚀 hello Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });

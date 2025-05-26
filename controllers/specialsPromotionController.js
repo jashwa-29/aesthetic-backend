@@ -1,25 +1,40 @@
-const fs = require('fs');
-const fsPromises = require('fs/promises');
-const path = require('path');
+const cloudinary = require('../config/cloudinary');
 const SpecialsPromotion = require('../models/SpecialsPromotion');
 
 // Create a new specials promotion item
 exports.createSpecialsPromotion = async (req, res) => {
   try {
     const { month } = req.body;
-    const image = req.file?.filename;
+    const file = req.file;
 
-    if (!month || !image) {
+    if (!month || !file) {
       return res.status(400).json({ error: 'Month and image are required for the promotion' });
     }
 
-    const promotion = new SpecialsPromotion({
-      month,
-      image
-    });
+    // Upload to Cloudinary
+    const result = await cloudinary.uploader.upload_stream(
+      { folder: 'specials_promotions' },
+      async (error, result) => {
+        if (error) {
+          console.error('Cloudinary upload error:', error);
+          return res.status(500).json({ error: 'Image upload failed' });
+        }
 
-    await promotion.save();
-    res.status(201).json(promotion);
+        const promotion = new SpecialsPromotion({
+          month,
+          image: result.secure_url,
+        });
+
+        await promotion.save();
+        res.status(201).json(promotion);
+      }
+    );
+
+    // Write file buffer to the upload stream
+    const stream = require('stream');
+    const bufferStream = new stream.PassThrough();
+    bufferStream.end(file.buffer);
+    bufferStream.pipe(result);
   } catch (err) {
     console.error('Create error:', err);
     res.status(500).json({ error: 'Failed to create specials promotion item' });
@@ -55,30 +70,42 @@ exports.getSpecialsPromotionById = async (req, res) => {
 exports.updateSpecialsPromotion = async (req, res) => {
   try {
     const { month } = req.body;
-    const image = req.file?.filename;
+    const file = req.file;
 
     const promotion = await SpecialsPromotion.findById(req.params.id);
     if (!promotion) {
       return res.status(404).json({ error: 'Specials promotion item not found' });
     }
 
-    // Delete old image if a new one is uploaded
-    if (image && promotion.image) {
-      const oldImagePath = path.resolve(__dirname, '../uploads', promotion.image);
-      try {
-        await fsPromises.unlink(oldImagePath);
-        console.log('Old image deleted:', oldImagePath);
-      } catch (err) {
-        console.error('Error deleting old image:', err.message);
-      }
+    if (file) {
+      // Upload new image to Cloudinary
+      const uploadStream = cloudinary.uploader.upload_stream(
+        { folder: 'specials_promotions' },
+        async (error, result) => {
+          if (error) {
+            console.error('Cloudinary upload error:', error);
+            return res.status(500).json({ error: 'Image upload failed' });
+          }
+
+          // Update fields
+          promotion.image = result.secure_url;
+          if (month) promotion.month = month;
+
+          await promotion.save();
+          res.json(promotion);
+        }
+      );
+
+      const stream = require('stream');
+      const bufferStream = new stream.PassThrough();
+      bufferStream.end(file.buffer);
+      bufferStream.pipe(uploadStream);
+    } else {
+      // No new image, only update month
+      if (month) promotion.month = month;
+      await promotion.save();
+      res.json(promotion);
     }
-
-    // Update fields
-    promotion.month = month || promotion.month;
-    if (image) promotion.image = image;
-
-    await promotion.save();
-    res.json(promotion);
   } catch (err) {
     console.error('Update error:', err);
     res.status(500).json({ error: 'Failed to update specials promotion item' });
@@ -93,17 +120,7 @@ exports.deleteSpecialsPromotion = async (req, res) => {
       return res.status(404).json({ error: 'Specials promotion item not found' });
     }
 
-    // Delete image file if exists
-    if (promotion.image) {
-      const imagePath = path.resolve(__dirname, '../uploads', promotion.image);
-      try {
-        await fsPromises.unlink(imagePath);
-        console.log('Image file deleted:', imagePath);
-      } catch (err) {
-        console.error('Error deleting image file:', err.message);
-      }
-    }
-
+    // Note: Optionally, delete from Cloudinary if storing the public_id
     await SpecialsPromotion.deleteOne({ _id: req.params.id });
     res.json({ message: 'Specials promotion item deleted successfully' });
   } catch (err) {
