@@ -45,6 +45,8 @@ mongoose.connect(process.env.MONGO_URI)
     console.error('❌ DB connection error:', err);
   });
 
+  
+
 // --- API Routes ---
 app.use('/api/auth', authRoutes);
 app.use('/api/blogs', blogRoutes);
