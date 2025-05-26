@@ -45,7 +45,10 @@ mongoose.connect(process.env.MONGO_URI)
     console.error('❌ DB connection error:', err);
   });
 
-  
+
+  app.get('/', (req, res) => {
+  res.send('<h2>🚀 API is running successfully!</h2>');
+});
 
 // --- API Routes ---
 app.use('/api/auth', authRoutes);
