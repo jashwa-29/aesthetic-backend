@@ -89,7 +89,7 @@ module.exports = function generateBlogHTML(blog) {
     />
 
     <link rel="stylesheet" href="../style.css" />
-    <link rel="stylesheet" href="../chatbot.css" />
+   
 </head>
 <body>
  <header class="partial_nav_header light" data-s3-partial>
@@ -104,7 +104,7 @@ module.exports = function generateBlogHTML(blog) {
         <div class="logo-holder">
           <a href="../index.html">
             <picture>
-              <source media="(min-width: 1025px)" srcset="../assets/logo.webp">
+              <source media="(min-width: 1025px)" srcset="../assets/logoblack.webp">
               <source media="(max-width: 1024px)" srcset="../assets/logoblack.webp">
               <img src="../assets/logoblack.webp" loading="lazy" class="logo" alt="aesthetic studio" draggable="false">
             </picture>
@@ -649,7 +649,7 @@ module.exports = function generateBlogHTML(blog) {
     </script>
 
 
-    <script src="../chatbot.js"></script>
+   
 </body>
 </html>
 `;
