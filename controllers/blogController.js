@@ -87,11 +87,7 @@ exports.createBlog = async (req, res) => {
       sections: parseJSON(sections, []),
       faqs: parseJSON(faqs, []),
       highlightBox: parseJSON(highlightBox, null),
-      tags: Array.isArray(tags)
-        ? tags.map(tag => tag.trim())
-        : typeof tags === 'string'
-          ? tags.split(',').map(tag => tag.trim())
-          : [],
+      tags: parseJSON(tags, []),
       metaDescription,
       publishedDate: publishedDate ? new Date(publishedDate) : null,
       isPublished: isPublished === 'true' || isPublished === true
@@ -182,11 +178,7 @@ exports.updateBlog = async (req, res) => {
     blog.sections = sections ? parseJSON(sections, blog.sections) : blog.sections;
     blog.faqs = faqs ? parseJSON(faqs, blog.faqs) : blog.faqs;
     blog.highlightBox = highlightBox ? parseJSON(highlightBox, blog.highlightBox) : blog.highlightBox;
-    blog.tags = Array.isArray(tags)
-      ? tags.map(tag => tag.trim())
-      : typeof tags === 'string'
-        ? tags.split(',').map(tag => tag.trim())
-        : blog.tags;
+    blog.tags = tags ? parseJSON(tags, blog.tags) : blog.tags;
     blog.metaDescription = metaDescription ?? blog.metaDescription;
     blog.publishedDate = publishedDate ? new Date(publishedDate) : blog.publishedDate;
     blog.isPublished = isPublished === 'true' || isPublished === true || blog.isPublished;

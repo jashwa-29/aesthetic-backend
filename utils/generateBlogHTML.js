@@ -88,282 +88,155 @@ module.exports = function generateBlogHTML(blog) {
       crossorigin
     />
 
-    <linK rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../style.css" />
+    <link rel="stylesheet" href="../chatbot.css" />
 </head>
 <body>
-    <header class="partial_nav_header light" data-s3-partial>
-      <div class="top-header">
-        <div class="inside">
-          <span>Heritage Vijayendra Nagar phase 2, telephone Nagar Main Road,
-            Perungudi, Chennai 96</span>
-        </div>
-        <div class="lang">
-          <!-- Language options can be added here -->
-        </div>
+ <header class="partial_nav_header light" data-s3-partial>
+    <div class="top-header">
+      <div class="inside">
+        <span>Heritage Vijayendra Nagar phase 2, telephone Nagar Main Road, Perungudi, Chennai 96</span>
       </div>
-      <div class="row">
-        <div class="inner">
-          <div class="logo-holder">
-            <a href="../index.html">
-              <picture>
-                <!-- Original logo for larger screens -->
-                <source media="(min-width: 1025px)" srcset="../assets/logoblack.webp">
-                <!-- Black logo for small and medium screens -->
-                <source media="(max-width: 1024px)" srcset="../assets/logoblack.webp">
-                <img
-                  src="../assets/logo.webp"
-                  loading="lazy"
-                  class="logo"
-                  alt="aesthetic studio"
-                  draggable="false" />
-              </picture>
-            </a>
-          </div>
-          <div class="nav-links">
-            <nav
-              class="tresio-nav"
-              data-type-desktop="horizontal"
-              data-type-tablet="hamburger"
-              data-type-mobile="hamburger"
-              data-variant-desktop="focus"
-              data-variant-tablet="default"
-              data-variant-mobile="default"
-              data-breakpoint-mobile="640"
-              data-breakpoint-tablet="1024"
-              data-dropdown-label
-              data-hamburger-color="#fff"
-              data-hamburger-color-expanded="#fff"
-              data-menu-offset="0"
-              data-menu-offset-mobile="0">
-              <ul class="list partial_nav" data-s3-partial>
-                <li class="partial_nav_item " data-s3-partial>
-                  <a href="../index.html">Home</a>
-                </li>
-    
-                <li class="partial_nav_item is-active" data-s3-partial>
-                  <a href="../about.html">About</a>
-                  <ul class>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../meet-dr.html">
-                        know your Dr.Bharathi
-                      </a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../specials-and-promotions.html">Specials and Promotions</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../reviews.html">Reviews</a>
-                    </li>
-                  </ul>
-                </li>
-    
-                <li class="partial_nav_item" data-s3-partial>
-                  <a href="../breast.html">Breast</a>
-                  <ul class>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../breast-implant.html">Breast Implant</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../breast-fatfill.html">Breast Fatfill</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../breast-reduction.html">Breast Reduction</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../axillary-breast-removal.html">Axillary Breast removal</a>
-                    </li>
-                  </ul>
-                </li>
-    
-                <li class="partial_nav_item" data-s3-partial>
-                  <a href="../hair.html">Hair</a>
-                  <ul class>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../hair-transplant.html">Hair Transplant</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../prp.html">PRP/GFC/QR678</a>
-                    </li>
-                  </ul>
-                </li>
-    
-                <li class="partial_nav_item" data-s3-partial>
-                  <a href="../body.html">Body</a>
-                  <ul class>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../male-breast-reduction.html">Male Breast Reduction (Gynecomastia)</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../liposuction.html">Liposuction</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../tummy-tuck.html">Tummy Tuck</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../mommy-makeover.html">Mommy Make over</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../multiple-liopmo-excision.html">Multiple Lipmo Excision</a>
-                    </li>
-
-                                       <li class="partial_nav_item" data-s3-partial>
-                  <a href="../cosmetic-gynecology.html">Cosmetic Gynecology</a>
-                  <ul class>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../vaginoplasty.html">Vaginoplasty</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../labiaplasty.html">Labiaplasty</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../hymen-repair.html">Hymen Repair</a>
-                    </li>
-                  </ul>
-                </li>
-                  </ul>
-                </li>
-                
-              
-    
-                <li class="partial_nav_item" data-s3-partial>
-                  <a href="../medspa.html">Medspa</a>
-                  <ul class>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../botox.html">BOTOX</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../facial-fillers.html">Facial Fillers</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../skin-tightening.html">Skin Tightening / Rejuvenation</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../acne-acne-scar-treatment.html">Acne Scar Treatment</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../iv-therapy.html">IV Therapy</a>
-                    </li>
-                  </ul>
-                </li>
-    
-                <li class="partial_nav_item" data-s3-partial>
-                  <a href="../face.html">Face</a>
-                  <ul class>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../lip-reduction.html">Lip Reduction</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../otoplasty.html">Otoplasty</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../fat-transfer.html">Fat Transfer</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../chin-augmentation.html">Chin Augmentation</a>
-                    </li>
-                  </ul>
-                </li>
-    
-                <li class="partial_nav_item" data-s3-partial>
-                  <a href="../blog.html">Blogs</a>
-                </li>
-    
-                <li class="partial_nav_item" data-s3-partial>
-                  <a href="../gallery.html">Gallery</a>
-                  <ul class>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../gallery-breast.html">Breast</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../gallery-face.html">Face</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../gallery-body.html">Body</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../gallery-medspa.html">Medspa</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../gallery-hair.html">Hair</a>
-                    </li>
-                    <li class="partial_nav_item" data-s3-partial>
-                      <a href="../gallery-cosmetic-gynecology.html">Cosmetic Gynecology</a>
-                    </li>
-                  </ul>
-                </li>
-    
-                <li class="partial_nav_item" data-s3-partial>
-                  <a href="../contact.html">Contact</a>
-                </li>
-                <li class="ignore">
-                  <div class="info">
-                    <ul class="partial_socials" data-s3-partial>
-                      <li><a rel="noopener"
-                          title="aesthetic studio & Laser Center on Instagram"
-                          href target="_blank"
-                          aria-label="aesthetic studio & Laser Center on Instagram opens in a new tab"><span
-                            class="instagram-icon"
-                            role="presentation"></span></a></li>
-                      <li><a rel="noopener"
-                          title="aesthetic studio & Laser Center on Facebook"
-                          href target="_blank"
-                          aria-label="aesthetic studio & Laser Center on Facebook opens in a new tab"><span
-                            class="facebook-icon"
-                            role="presentation"></span></a></li>
-                      <li><a rel="noopener"
-                          title="aesthetic studio & Laser Center on Youtube"
-                          href target="_blank"
-                          aria-label="aesthetic studio & Laser Center on Youtube opens in a new tab"><span
-                            class="youtube-icon"
-                            role="presentation"></span></a></li>
-                      <li><a rel="noopener"
-                          title="aesthetic studio & Laser Center on Yelp" href
-                          target="_blank"
-                          aria-label="aesthetic studio & Laser Center on Yelp opens in a new tab"><span
-                            class="yelp-icon"
-                            role="presentation"></span></a></li>
+      <div class="lang"></div>
+    </div>
+    <div class="row">
+      <div class="inner">
+        <div class="logo-holder">
+          <a href="../index.html">
+            <picture>
+              <source media="(min-width: 1025px)" srcset="../assets/logo.webp">
+              <source media="(max-width: 1024px)" srcset="../assets/logoblack.webp">
+              <img src="../assets/logoblack.webp" loading="lazy" class="logo" alt="aesthetic studio" draggable="false">
+            </picture>
+          </a>
+        </div>
+        <div class="nav-links">
+          <nav class="tresio-nav" data-type-desktop="horizontal" data-type-tablet="hamburger" data-type-mobile="hamburger" data-variant-desktop="focus" data-variant-tablet="default" data-variant-mobile="default" data-breakpoint-mobile="640" data-breakpoint-tablet="1024" data-dropdown-label data-hamburger-color="#fff" data-hamburger-color-expanded="#fff" data-menu-offset="0" data-menu-offset-mobile="0">
+            <ul class="list partial_nav" data-s3-partial>
+              <li class="partial_nav_item " data-s3-partial><a href="../index.html">Home</a></li>
+              <li class="partial_nav_item" data-s3-partial>
+                <a href="../about.html">About</a>
+                <ul>
+                  <li class="partial_nav_item" data-s3-partial><a href="../meet-dr.html">know your Dr.Bharathi</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../specials-and-promotions.html">Specials and Promotions</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../reviews.html">Reviews</a></li>
+                </ul>
+              </li>
+              <li class="partial_nav_item" data-s3-partial>
+                <a href="../breast.html">Breast</a>
+                <ul>
+                  <li class="partial_nav_item" data-s3-partial><a href="../breast-implant.html">Breast Implant</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../breast-fatfill.html">Breast Fatfill</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../breast-lift.html">Breast Lift</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../breast-reduction.html">Breast Reduction</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../axillary-breast-removal.html">Axillary Breast removal</a></li>
+                </ul>
+              </li>
+              <li class="partial_nav_item" data-s3-partial>
+                <a href="../hair.html">Hair</a>
+                <ul>
+                  <li class="partial_nav_item" data-s3-partial><a href="../hair-transplant.html">Hair Transplant</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../prp.html">PRP/GFC/QR678</a></li>
+                </ul>
+              </li>
+              <li class="partial_nav_item" data-s3-partial>
+                <a href="../body.html">Body</a>
+                <ul>
+                  <li class="partial_nav_item" data-s3-partial><a href="../male-breast-reduction.html">Male Breast Reduction (Gynecomastia)</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../liposuction.html">Liposuction</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../tummy-tuck.html">Tummy Tuck</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../mommy-makeover.html">Mommy Make over</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../multiple-lipoma-excision.html">Multiple lipoma Excision</a></li>
+                  <li class="partial_nav_item" data-s3-partial>
+                    <a href="../cosmetic-gynecology.html">Cosmetic Gynecology</a>
+                    <ul>
+                      <li class="partial_nav_item" data-s3-partial><a href="../vaginoplasty.html">Vaginoplasty</a></li>
+                      <li class="partial_nav_item" data-s3-partial><a href="../labiaplasty.html">Labiaplasty</a></li>
+                      <li class="partial_nav_item" data-s3-partial><a href="../hymen-repair.html">Hymen Repair</a></li>
                     </ul>
-                    <p>
-                      <a
-                        class="tel ppc-href"
-                        href="tel:+91-9361228737"
-                        data-s3-event="Phone - Mobile Nav"
-                        role="link"
-                        aria-label="Give Cara Plastic Surgery & Laser Center a phone call"><span
-                          class="ppc-number">+91-80 4803 9063</span></a>
-                    </p>
-                  </div>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div class="phone-holder">
-            <a
-              class="tel ppc-href"
-              href="tel:+91-9361228737"
-              role="link"
-              aria-label="Give aesthetic studio & Laser Center a phone call">
-              <span class="phone-icon"><picture class>
-                  <source
-                    srcset="
-                      data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=
-                    "
-                    data-lazyload-srcset="https://www.datocms-assets.com/59206/1710453059-phone-icon-solid.png?auto=format,compress&w=80" />
-                  <img
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
-                    data-lazyload-src="https://www.datocms-assets.com/59206/1710453059-phone-icon-solid.png?auto=format,compress&w=80"
-                    loading="lazy"
-                    data-lazyload="img"
-                    width="80"
-                    height="102"
-                    alt="aesthetic studio - Phone Icon"
-                    draggable="false" /></picture></span>
-              <span class="ppc-number">+91-9361228737</span>
-            </a>
-          </div>
+                  </li>
+                </ul>
+              </li>
+              <li class="partial_nav_item" data-s3-partial>
+                <a href="../medspa.html">Medspa</a>
+                <ul>
+                  <li class="partial_nav_item" data-s3-partial><a href="../botox.html">BOTOX</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../facial-fillers.html">Facial Fillers</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../skin-tightening.html">Skin Tightening / Rejuvenation</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../acne-scar-treatment.html">Acne Scar Treatment</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../iv-therapy.html">IV Therapy</a></li>
+                </ul>
+              </li>
+              <li class="partial_nav_item" data-s3-partial>
+                <a href="../face.html">Face</a>
+                <ul>
+                  <li class="partial_nav_item" data-s3-partial><a href="../lip-reduction.html">Lip Reduction</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../otoplasty.html">Otoplasty</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../fat-transfer.html">Fat Transfer</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../chin-augmentation.html">Chin Augmentation</a></li>
+  <li class="partial_nav_item" data-s3-partial><a href="../rhinoplasty.html">Rhinoplasty</a></li>
+                </ul>
+              </li>
+              <li class="partial_nav_item is-active" data-s3-partial><a href="../blog.html">Blogs</a></li>
+              <li class="partial_nav_item" data-s3-partial>
+                <a href="../gallery.html">Gallery</a>
+                <ul>
+                  <li class="partial_nav_item" data-s3-partial>
+                    <a href="../gallery-breast.html">Breast</a>
+                    <ul>
+                      <li class="partial_nav_item" data-s3-partial><a href="../gallery-breast-implants.html">Breast Implant</a></li>
+                      <li class="partial_nav_item" data-s3-partial><a href="../gallery-breast-fatfill.html">Breast Fatfill</a></li>
+                      <li class="partial_nav_item" data-s3-partial><a href="../gallery-breast-reduction.html">Breast Reduction</a></li>
+                      <li class="partial_nav_item" data-s3-partial><a href="../gallery-axillary-breast-removal.html">Axillary Breast removal</a></li>
+                    </ul>
+                  </li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../gallery-face.html">Face</a></li>
+                  <li class="partial_nav_item" data-s3-partial>
+                    <a href="../gallery-body.html">Body</a>
+                    <ul>
+                      <li class="partial_nav_item" data-s3-partial><a href="../gallery-male-breast-reduction.html">Male Breast Reduction</a></li>
+                      <li class="partial_nav_item" data-s3-partial><a href="../gallery-liposuction.html">Liposuction</a></li>
+                      <li class="partial_nav_item" data-s3-partial><a href="../gallery-tummy-tuck.html">Tummy Tuck</a></li>
+                      <li class="partial_nav_item" data-s3-partial><a href="../gallery-mommy-makeover.html">Mommy Make over</a></li>
+                      <li class="partial_nav_item" data-s3-partial><a href="../gallery-multiple-lipoma-excision.html">Multiple lipoma Excision</a></li>
+                    </ul>
+                  </li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../gallery-medspa.html">Medspa</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../gallery-hair.html">Hair</a></li>
+                  <li class="partial_nav_item" data-s3-partial><a href="../gallery-cosmetic-gynecology.html">Cosmetic Gynecology</a></li>
+                </ul>
+              </li>
+              <li class="partial_nav_item" data-s3-partial><a href="../contact.html">Contact</a></li>
+              <li class="ignore">
+                <div class="info">
+                  <ul class="partial_socials" data-s3-partial>
+                    <li><a rel="noopener" title="aesthetic studio & Laser Center on Instagram" href target="_blank" aria-label="aesthetic studio & Laser Center on Instagram opens in a new tab"><span class="instagram-icon" role="presentation"></span></a></li>
+                    <li><a rel="noopener" title="aesthetic studio & Laser Center on Facebook" href target="_blank" aria-label="aesthetic studio & Laser Center on Facebook opens in a new tab"><span class="facebook-icon" role="presentation"></span></a></li>
+                    <li><a rel="noopener" title="aesthetic studio & Laser Center on Youtube" href target="_blank" aria-label="aesthetic studio & Laser Center on Youtube opens in a new tab"><span class="youtube-icon" role="presentation"></span></a></li>
+                    <li><a rel="noopener" title="aesthetic studio & Laser Center on Yelp" href target="_blank" aria-label="aesthetic studio & Laser Center on Yelp opens in a new tab"><span class="yelp-icon" role="presentation"></span></a></li>
+                  </ul>
+                  <p>
+                    <a class="tel ppc-href" href="tel:+91-9361228737" data-s3-event="Phone - Mobile Nav" role="link" aria-label=""><span class="ppc-number">+91-9361228737</span></a>
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="phone-holder">
+          <a class="tel ppc-href" href="tel:+91-9361228737" role="link" aria-label="Give aesthetic studio & Laser Center a phone call">
+            <span class="phone-icon">
+              <picture>
+                <source srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazyload-srcset="https://www.datocms-assets.com/59206/1710453059-phone-icon-solid.png?auto=format,compress&w=80">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-lazyload-src="https://www.datocms-assets.com/59206/1710453059-phone-icon-solid.png?auto=format,compress&w=80" loading="lazy" data-lazyload="img" width="80" height="102" alt="aesthetic studio - Phone Icon" draggable="false">
+              </picture>
+            </span>
+            <span class="ppc-number">+91-9361228737</span>
+          </a>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
   <main id="main">
     <!-- Page Layout -->
     <!-- Hero Module -->
@@ -776,6 +649,7 @@ module.exports = function generateBlogHTML(blog) {
     </script>
 
 
+    <script src="../chatbot.js"></script>
 </body>
 </html>
 `;

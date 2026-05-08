@@ -10,31 +10,45 @@ const authRoutes = require('./routes/authRoutes');
 const blogRoutes = require('./routes/blogRoutes');
 const galleryRoutes = require('./routes/galleryRoutes');
 const specialsPromotionRoutes = require('./routes/specialsPromotionRoutes');
+const leadRoutes = require('./routes/leadRoutes');
+const chatbotSettingsRoutes = require('./routes/chatbotRoutes');
 
 const app = express();
 
-// Middleware
-app.use(express.json());
-
 // --- CORS Configuration ---
 const allowedOrigins = [
+  'https://www.aestheticstudio.in',
   'https://aestheticstudio.in',
   'http://localhost:3000',
+  'http://localhost:3001',
+  'http://localhost:5173',
+  'http://localhost:5500',
+  'http://127.0.0.1:5500',
+  'http://localhost:8080',
+  'https://adminpanel.aestheticstudio.in',
+  'https://www.adminpanel.aestheticstudio.in',
   'https://admin.aestheticstudio.in',
-  
-
+  'https://www.admin.aestheticstudio.in'
 ];
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      return callback(null, true);
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
     } else {
-      return callback(new Error('Not allowed by CORS'));
+      callback(null, false);
     }
   },
-  credentials: true
-}));
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+
+// --- Middleware ---
+app.use(express.json());
 
 // --- MongoDB Connection ---
 mongoose.connect(process.env.MONGO_URI)
@@ -45,8 +59,8 @@ mongoose.connect(process.env.MONGO_URI)
     console.error('❌ DB connection error:', err);
   });
 
-
-  app.get('/', (req, res) => {
+// --- Test Route ---
+app.get('/', (req, res) => {
   res.send('<h2>🚀 API is running successfully!</h2>');
 });
 
@@ -55,6 +69,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/blogs', blogRoutes);
 app.use('/api/gallery', galleryRoutes);
 app.use('/api/specialsPromotions', specialsPromotionRoutes);
+app.use('/api/leads', leadRoutes);
+app.use('/api/chatbot-settings', chatbotSettingsRoutes);
 
 // --- Static File Handling ---
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
@@ -75,3 +91,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
+
